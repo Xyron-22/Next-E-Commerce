@@ -2,10 +2,8 @@
 import React from "react";
 import { signIn, signOut, useSession } from "next-auth/react";
 
-export default function TestComponent () {
+export default function HomePage () {
     const { data: session } = useSession();
-
-    console.log(session)
 
     if (session) {
         return (
