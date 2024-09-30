@@ -9,7 +9,9 @@ export default async function handle(req, res) {
   await isAdminRequest(req,res);
 
   if (method === 'GET') {
-    res.json(await Category.find().populate('parent'));
+    // res.json(await Category.find().populate('parent'));
+    res.json(["Some", "Data"]);
+    console.log("testing")
   }
 
   if (method === 'POST') {
