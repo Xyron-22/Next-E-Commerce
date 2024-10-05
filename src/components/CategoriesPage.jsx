@@ -2,6 +2,7 @@
 
 import Layout from "@/components/Layout";
 import {useEffect, useState} from "react";
+import {useRouter} from "next/navigation";
 import axios from "axios";
 import { withSwal } from 'react-sweetalert2';
 
@@ -11,16 +12,21 @@ function Categories({swal}) {
   const [parentCategory,setParentCategory] = useState('');
   const [categories,setCategories] = useState([]);
   const [properties,setProperties] = useState([]);
+
+  const router = useRouter()
+
   useEffect(() => {
     fetchCategories();
   }, [])
-  function fetchCategories() {
-    axios.get('/api/categories').then(result => {
-      setCategories(result.data);
-    });
+  async function fetchCategories() {
+    try {
+      await axios.get('/api/categories').then(result => {
+        setCategories(result.data);
+      });
+    } catch (error) {
+      router.push('/')
+    }
   }
-
-  console.log(categories)
 
   async function saveCategory(ev){
     ev.preventDefault();

@@ -1,3 +1,5 @@
+"use client"
+
 import {BounceLoader} from "react-spinners";
 
 export default function Spinner() {

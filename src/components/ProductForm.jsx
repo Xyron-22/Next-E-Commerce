@@ -1,5 +1,7 @@
+"use client"
+
 import {useEffect, useState} from "react";
-import {useRouter} from "next/router";
+import {useRouter} from "next/navigation";
 import axios from "axios";
 import Spinner from "@/components/Spinner";
 import {ReactSortable} from "react-sortablejs";
